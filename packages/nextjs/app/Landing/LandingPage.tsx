@@ -1,20 +1,13 @@
 "use client";
 
-import { useState } from "react";
 import { RainbowKitCustomConnectButton } from "../../components/scaffold-eth";
 import FeatureCanvasCard from "./_components/FeatureCanvasCard";
 import MatrixRain from "./_components/MatrixRain";
 import { Code, Shield, Users } from "lucide-react";
 
 export default function LandingPage() {
-  const [isConnected, setIsConnected] = useState(false);
-
-  const handleConnectWallet = () => {
-    setIsConnected(true);
-  };
-
   return (
-    <div className="min-h-screen bg-primary relative overflow-hidden">
+    <section className="min-h-screen bg-primary relative overflow-hidden">
       <MatrixRain />
 
       {/* Header */}
@@ -41,8 +34,8 @@ export default function LandingPage() {
           </h1>
 
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-            "Join the most feared elite squad of hacker frogs on the blockchain. Build your team, hack networks, and
-            dominate the metaverse."
+            &quot;Join the most feared elite squad of hacker frogs on the blockchain. Build your team, hack networks,
+            and dominate the metaverse.&quot;
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -52,38 +45,31 @@ export default function LandingPage() {
       </section>
 
       {/* Features Section */}
-      <section className="relative z-10 py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-white mb-12">Game Features</h2>
+      <article className="relative z-10 py-20 lg:px-12">
+        <h2 className="text-4xl font-bold text-center text-white mb-12">Game Features</h2>
 
-          <div className="grid md:grid-cols-3 gap-8 justify-center">
-            {[
-              {
-                icon: <Users className="w-6 h-6 text-green-400" />,
-                title: "Elite Teams",
-                description: "Build squads of 4 hacker frogs with unique skills and rarities",
-              },
-              {
-                icon: <Code className="w-6 h-6 text-green-400" />,
-                title: "Blockchain Hacking",
-                description: "Infiltrate networks like Ethereum, Optimism, Arbitrum, and more",
-              },
-              {
-                icon: <Shield className="w-6 h-6 text-green-400" />,
-                title: "NFT Rewards",
-                description: "Earn unique rewards and collect legendary frogs",
-              },
-            ].map((feature, idx) => (
-              <FeatureCanvasCard
-                key={idx}
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-              />
-            ))}
-          </div>
+        <div className="flex flex-col md:flex-row gap-8 justify-between mx-auto items-center">
+          {[
+            {
+              icon: <Users className="w-6 h-6 text-green-400" />,
+              title: "Elite Teams",
+              description: "Build squads of 4 hacker frogs with unique skills and rarities",
+            },
+            {
+              icon: <Code className="w-6 h-6 text-green-400" />,
+              title: "Blockchain Hacking",
+              description: "Infiltrate networks like Ethereum, Optimism, Arbitrum, and more",
+            },
+            {
+              icon: <Shield className="w-6 h-6 text-green-400" />,
+              title: "NFT Rewards",
+              description: "Earn unique rewards and collect legendary frogs",
+            },
+          ].map((feature, idx) => (
+            <FeatureCanvasCard key={idx} icon={feature.icon} title={feature.title} description={feature.description} />
+          ))}
         </div>
-      </section>
-    </div>
+      </article>
+    </section>
   );
 }
